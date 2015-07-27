@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SCRIPT=$(readlink -f $0)
+SCRIPTPATH=`dirname $SCRIPT`
+PROJECT_ROOT=SCRIPTPATH
+PROJECT_NAME=`basename $SCRIPTPATH`
+
+sudo svc -du /etc/service/$PROJECT_NAME-gunicorn
+#sudo svc -du /etc/service/$PROJECT_NAME-celery
+sudo -u $PROJECT_NAME $SCRIPTPATH/bin/python manage.py collectstatic -v0 --noinput

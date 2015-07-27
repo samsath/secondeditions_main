@@ -1,0 +1,394 @@
+/*
+Title:      M/A London @madebyMA
+Author:     name @M/A London http://ma-work.co.uk
+*/
+/*------------------------------------*\
+    $VARS
+\*------------------------------------*/
+/**
+ * Base stuff
+ */
+/**
+ * Responsiveness?
+ */
+/**
+ * Tell killer.css when breakpoints start.
+ */
+/**
+ * Font-sizes (in pixels). Refer to relevant sections for their implementations.
+ */
+/**
+ * killer.css will work these next ones out for you.
+ *
+ * Assign our `$base-line-height` to a new spacing var for more transparency.
+ */
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * 
+   `@include font-size(10px);`
+ * 
+ */
+/**
+ * Create vendor-prefixed CSS in one go, e.g.
+ * 
+   `@include vendor(border-radius, 4px);`
+ * 
+ */
+/* --- Hex-to-RGBA --- */
+/* --- BORDER RADIUS --- */
+/**
+ * Media query mixin.
+ *
+ * It’s not great practice to define solid breakpoints up-front, preferring to
+ * modify your design when it needs it, rather than assuming you’ll want a
+ * change at ‘mobile’. However, as inuit.css is required to take a hands off
+ * approach to design decisions, this is the closest we can get to baked-in
+ * responsiveness. It’s flexible enough to allow you to set your own breakpoints
+ * but solid enough to be frameworkified.
+ * 
+ * We define some broad breakpoints in our vars file that are picked up here
+ * for use in a simple media query mixin. Our options are:
+ *
+ * palm
+ * lap
+ * lap-and-up
+ * portable
+ * desk
+ * 
+ * Not using a media query will, naturally, serve styles to all devices.
+ * 
+ * `@include media-query(palm){ [styles here] }`
+ * 
+ * We work out your end points for you:
+ */
+/**
+ * Brand and Theme variables
+ */
+/* FONTS
+----------------------------------------------- */
+html {
+  -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: "proxima-nova",sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  overflow-x: hidden; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "proxima-nova",sans-serif;
+  font-style: normal;
+  font-weight: 300; }
+
+.navbar-toggle {
+  display: block !important; }
+
+.nav-trigger {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  width: 50px;
+  background: #333333;
+  z-index: 99999999999; }
+
+.navmenu-default {
+  background: #333333; }
+
+.icon-bar {
+  color: #e7e7e7; }
+
+.nav-social {
+  position: relative;
+  left: 0px;
+  bottom: 0px; }
+
+.navbutton {
+  color: #e7e7e7; }
+
+#footerContent {
+  background: none repeat scroll 0 0 #333333; }
+
+#mainpage_tagline {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase; }
+
+#navicon {
+  position: absolute;
+  bottom: 5%; }
+
+.fa-facebook, .fa-twitter, .fa-youtube, .fa-vimeo-square {
+  font-size: 50px;
+  padding: 15px 20px;
+  text-align: center;
+  color: #e7e7e7; }
+
+.fa-stack, .fa-lg {
+  top: 25px; }
+
+.fa-circle-o, .fa-stack-2x {
+  font-size: 50px; }
+
+.fa-stack-1x {
+  font-weight: bold;
+  font-size: 14px;
+  top: 5px; }
+
+p.footertext {
+  color: #e7e7e7;
+  font-style: italic;
+  text-align: left; }
+
+.placelogo {
+  position: inherit;
+  width: 50%; }
+
+.frontsection {
+  width: 200px; }
+
+.borderleft {
+  border-left: 1px solid; }
+
+.borderbottom {
+  border-bottom: 1px solid; }
+
+hr {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 100px;
+  height: 1px;
+  background: #e7e7e7; }
+
+.scrollname {
+  position: absolute;
+  font-size: 20px;
+  color: #e7e7e7; }
+
+.fa-angle-down {
+  font-size: 50px;
+  color: #e7e7e7;
+  position: absolute; }
+
+.fa-bars {
+  font-size: 30px;
+  color: #e7e7e7;
+  font-weight: lighter;
+  position: fixed;
+  left: 10px;
+  top: 10px; }
+
+.fa-close {
+  font-size: 30px;
+  color: #333333;
+  font-weight: lighter;
+  position: fixed;
+  left: 10px;
+  top: 10px; }
+
+.main_title {
+  font-family: "proxima-nova",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 15px 15px 0px 0px;
+  font-size: 20px; }
+
+.main_ep {
+  text-align: left;
+  font-family: "proxima-nova",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-bottom: 20px; }
+
+.main_quote {
+  position: relative;
+  text-align: centre;
+  font-size: 20px;
+  line-height: 20px;
+  top: 25px;
+  left: 10px; }
+
+.featured {
+  min-height: 165px; }
+
+.main_tv_box {
+  background: #0074b4;
+  color: #e7e7e7;
+  display: block; }
+
+.main_dash {
+  position: relative;
+  text-align: centre;
+  height: 1px;
+  width: 80%;
+  left: 10%; }
+
+.main_clock {
+  font-size: 25px;
+  top: 3px;
+  position: relative; }
+
+.main_time {
+  text-align: left;
+  border-right: 1px solid #e7e7e7;
+  font-size: 10px; }
+
+.tv_details {
+  font-size: 15px;
+  text-align: left;
+  padding: 10px; }
+
+.main_date {
+  text-aligh: left;
+  font-size: 12px; }
+
+.tv_title {
+  text-transform: uppercase;
+  font-family: "proxima-nova",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-align: left;
+  padding: 20px 10px 0px 10px;
+  font-size: 18px;
+  display: block;
+  position: relative; }
+
+.tv_ep {
+  text-align: left;
+  font-family: "proxima-nova",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+  display: block;
+  padding: 0px 10px 20px 10px;
+  position: relative; }
+
+.tv_text {
+  color: #0074b4;
+  text-align: left; }
+
+.tv_padding {
+  padding: 10px; }
+
+.half {
+  max-width: 50%;
+  height: auto; }
+
+.border {
+  background-color: white;
+  border-left: 2px solid #d3d3d3;
+  border-bottom: 2px solid #d3d3d3;
+  border-right: 2px solid #d3d3d3;
+  border-radius: 2px; }
+
+.tv_block {
+  margin: 5px; }
+
+.img_tv {
+  margin-left: 5px; }
+
+a, a:hover {
+  text-decoration: none; }
+
+.pad_section {
+  padding-top: 100px; }
+
+.stamp {
+  padding: 20px 20px 20px 20px; }
+
+/*------------------------------------*\
+    $OFF CANVAS MENU custom styles
+\*------------------------------------*/
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 0; }
+
+.navmenu, .navbar-offcanvas {
+  width: 260px; }
+
+.navmenu-default .navmenu-nav > li > a, .navbar-default .navbar-offcanvas .navmenu-nav > li > a {
+  color: #fff; }
+
+ul.navmenu-nav {
+  padding: 0 30px; }
+
+ul.navmenu-nav li {
+  border-bottom: 1px solid #fff; }
+ul.navmenu-nav li a {
+  padding: 15px 0; }
+ul.navmenu-nav li a.first {
+  padding-top: 30px; }
+
+.navmenu-default .navmenu-nav > li > a {
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+
+.navmenu-default .navmenu-nav > li > a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+  color: #fff; }
+
+/*------------------------------------*\
+    $OFF CANVAS MENU SOCIAL MEDIA
+\*------------------------------------*/
+#navicon {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: url("../img/ui/menu-sep.svg"); }
+
+.social-item {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 100px;
+  text-align: center; }
+.social-item a {
+  color: #fff; }
+.social-item a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -webkit-opacity: 0.5;
+  opacity: 0.5; }
+
+.fa-facebook, .fa-twitter, .fa-youtube, .fa-vimeo-square {
+  font-size: 30px;
+  padding-top: 40px;
+  text-align: center;
+  color: #e7e7e7; }
+
+/*------------------------------------*\
+    $BASE FOOTER
+\*------------------------------------*/
+#footer {
+  background-color: #404041; }
+
+#footerContent {
+  background-color: #404041;
+  height: 6px;
+  min-height: 120px;
+  padding: 30px 0; }
+
+#footer-logo {
+  margin-top: 6px; }
+
+p.footertext {
+  margin: 0; }

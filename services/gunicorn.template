@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SCRIPT=$(readlink -f $0)
+SCRIPTPATH=`dirname $SCRIPT`
+
+# go one dir up
+PROJECT_ROOT=`dirname $SCRIPTPATH`
+cd $PROJECT_ROOT
+
+exec \
+    setuidgid %(USER)s \
+    .env/bin/python manage.py run_gunicorn \
+        127.0.0.1:%(PORT)s \
+        --log-file=$PROJECT_ROOT/logs/gunicorn.log \
+        --workers=2 \
+        --worker-class=eventlet

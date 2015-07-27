@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /srv/<REPLACE:PROJECT_NAME>
+bin/python manage.py mediastore_process_video_queue > logs/videoqueue.log 2&>1

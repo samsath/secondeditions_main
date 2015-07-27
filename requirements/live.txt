@@ -1,0 +1,2 @@
+-r common.txt
+eventlet == 0.15.2
