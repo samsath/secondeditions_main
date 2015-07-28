@@ -27,7 +27,7 @@ DATABASES = {
 #                             email settings                              #
 ###########################################################################
 
-DEFAULT_FROM_EMAIL = 'angelo@ma-work.co.uk'
+DEFAULT_FROM_EMAIL = 'info@secondeditions.net'
 
 # GMail Email setup
 # -----------------

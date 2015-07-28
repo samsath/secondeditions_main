@@ -39,8 +39,7 @@ ALLOWED_HOSTS = (
 # -------------------
 
 ADMINS = (
-    (u'Angelo', u'angelo@ma-work.co.uk'),
-    (u'Gregor', u'gregor@ma-work.co.uk'),
+    (u'Sam', u'samhipwell@gmail.com'),
 )
 MANAGERS = ADMINS
 
@@ -48,7 +47,7 @@ MANAGERS = ADMINS
 # --------------
 
 EMAIL_SUBJECT_PREFIX = '[%s] ' % PROJECT_NAME
-DEFAULT_FROM_EMAIL = 'angelo@ma-work.co.uk'
+DEFAULT_FROM_EMAIL = 'info@secondeditions.net'
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # i18n / l10n

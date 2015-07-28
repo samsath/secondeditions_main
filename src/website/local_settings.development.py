@@ -18,7 +18,7 @@ DATABASES = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'angelo@ma-work.co.uk'
+DEFAULT_FROM_EMAIL = 'info@secondeditions.net'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = u'1234'

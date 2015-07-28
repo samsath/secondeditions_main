@@ -1,10 +1,57 @@
 {% extends "base.html" %}
 {% load webdesign %}
 
-{% block title %}Homepage{% endblock %}
+{% block title %}Second Editions{% endblock %}
 {% block bodyclass %}index{% endblock %}
 
+{% block extra_css %}
+    <style>
+        .bodyimg{
+            width:100%;
+        }
+
+        .section{
+            text-align:center;
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log('woop');
+            $('#fullpage').fullpage({
+                sectionsColor: ['#ffffff'],
+                scrollOverflow: true
+            });
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
-<h1>Welcome</h1>
-<p>{% lorem 200 w %}</p>
+    <div id="fullpage">
+        <div class="section" id="section1">
+            <div class="slide" id="slide1">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <img class="bodyimg" src="{{ STATIC_URL }}assets/img/Engels(workingman)final.svg"/>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" id="slide2">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <img class="bodyimg" src="{{ STATIC_URL }}assets/img/Engels(RichMan)final.svg"/>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" id="slide3">
+                <div class="centerbox">
+                    <a href="mailto:info@secondeditions.net">Contact us on info@secondeditions.net</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
