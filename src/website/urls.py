@@ -15,7 +15,7 @@ def direct_to_template(request, template, **kwargs):
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'website.views.index', name='index'),
+    url(r'^$', 'website.frontpage.views.index', name='index'),
 
 
     #DEVELOPMENT

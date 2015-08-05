@@ -1,18 +1,37 @@
 {% extends "base.html" %}
 {% load webdesign %}
 
-{% block title %}Second Editions{% endblock %}
+{% block title %}{{ fp.title }}{% endblock %}
 {% block bodyclass %}index{% endblock %}
 
 {% block extra_css %}
     <style>
         .bodyimg{
             width:100%;
+            height:auto;
         }
 
         .section{
-            text-align:center;
+            height:100% !important;
         }
+
+        {% if fp.slide_delay %}
+            .fp-prev{
+                border-color: transparent transparent transparent transparent !important;
+            }
+            .fp-next{
+                border-color: transparent transparent transparent transparent !important;
+            }
+
+            {% else %}
+            .fp-prev{
+                border-color: transparent lightslategrey transparent transparent !important;
+            }
+            .fp-next{
+                border-color: transparent transparent transparent lightslategrey !important;
+            }
+
+        {% endif %}
 
 
     </style>
@@ -23,35 +42,46 @@
         $(document).ready(function() {
             console.log('woop');
             $('#fullpage').fullpage({
-                sectionsColor: ['#ffffff'],
-                scrollOverflow: true
+                verticalCentered: true,
+                sectionsColor: ['{{ fp.bgcolor }}'],
+                scrollOverflow: true,
+                paddingTop: '0pc',
+                paddingBottom: '0px'
             });
+            {% if fp.slide_delay %}
+                setTimeout($.fn.fullpage.moveSlideRight(), {{ fp.slide_delay }});
+            {% endif %}
         });
     </script>
 {% endblock %}
 
 {% block content %}
     <div id="fullpage">
-        <div class="section" id="section1">
-            <div class="slide" id="slide1">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <img class="bodyimg" src="{{ STATIC_URL }}assets/img/Engels(workingman)final.svg"/>
+        {% if fp.is_image %}
+            <div class="section" id="section1">
+                {% for item in obj %}
+                    <div class="slide">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <img class="bodyimg" src="{{ MEDIA_URL }}{{ item.cover_image.object.file }}"/>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="slide" id="slide2">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <img class="bodyimg" src="{{ STATIC_URL }}assets/img/Engels(RichMan)final.svg"/>
+                {% endfor %}
+                {% if fp.showlast %}
+                    <div class="slide">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                {% if fp.email_description %}
+                                    <p class="emailtext">{{ fp.email_description }}</p>
+                                {% endif %}
+                                <a href="mailto:{{ fp.email_link }}">{% if fp.email_title %}{{ fp.email_title }}{% else %}{{ fp.email_link }}{% endif %}</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
-            <div class="slide" id="slide3">
-                <div class="centerbox">
-                    <a href="mailto:info@secondeditions.net">Contact us on info@secondeditions.net</a>
-                </div>
-            </div>
-        </div>
+        {% endif %}
+
     </div>
 {% endblock %}

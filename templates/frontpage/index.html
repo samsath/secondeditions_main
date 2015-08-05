@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load webdesign %}
+
+{% block title %}{{ fp.title }}{% endblock %}
+{% block bodyclass %}index{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .bodyimg{
+            width:100%;
+        }
+
+        .section{
+            text-align:center;
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                sectionsColor: ['{{ fp.bgcolor }}'],
+                scrollOverflow: true
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    {{ fp }}
+    <div id="fullpage">
+    {% if fp.is_image %}
+        <div class="section" id="section1">
+            {% for item in obj %}
+                <div class="slide" id="slide{{ forloop.counter }}">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <img class="bodyimg" src="{{ STATIC_URL }}{{ item.cover_image.object.file }}"/>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if fp.showlast %}
+                <div class="slide" id="slide{{ obj.count }}">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            {% if fp.email_description %}
+                                <p class="emailtext">{{ fp.email_description }}</p>
+                            {% endif %}
+                            <a href="mailto:{{ fp.email_link }}">{% if fp.email_title %}{{ fp.email_title }}{% else %}{{ fp.email_link }}{% endif %}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    </div>
+{% endblock %}

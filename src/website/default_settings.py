@@ -152,6 +152,7 @@ INSTALLED_APPS = (
     # project apps
     'website',
     'website.pages',
+    'website.frontpage',
 
 )
 
