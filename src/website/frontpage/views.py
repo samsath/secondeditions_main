@@ -5,8 +5,6 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 def index(request):
-    print 'index'
-    print FrontPage.objects.count()
     if FrontPage.objects.count() > 0:
 
         fp = FrontPage.objects.all()[0]
@@ -16,9 +14,6 @@ def index(request):
             obj = ImageType.objects.filter(is_public=True)
         elif fp.is_audio:
             obj = AudioType.objects.filter(is_public=True)
-
-        print fp
-        print obj
         context = {
             'obj': obj,
             'fp':fp

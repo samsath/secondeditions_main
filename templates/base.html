@@ -22,20 +22,16 @@
 		<![endif]-->
 
     <!-- CORE CSS FRAMEWORK -->
+    <!--
 		<link href="{{ STATIC_URL }}assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<link href="{{ STATIC_URL }}assets/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
 		<link href="{{ STATIC_URL }}assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
 		<link href="{{ STATIC_URL }}assets/css/animate.css" rel="stylesheet" type="text/css" />
-
-
-    <!-- Latest compiled and minified CSS-->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-    <!-- PLUGINS -->
 		<link href="{{ STATIC_URL }}assets/plugins/jquery-owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
 		<link href="{{ STATIC_URL }}assets/plugins/jquery-owl-carousel/owl.theme.css" rel="stylesheet" type="text/css" />
 		<link href="{{ STATIC_URL }}assets/plugins/prettyPhoto/css/prettyPhoto.css" rel="stylesheet" type="text/css" />
 		<link href="{{ STATIC_URL }}assets/plugins/jquery-bxslider/jquery.bxslider.css" rel="stylesheet" type="text/css" />
-        <!--
+
 		<link href="{{ STATIC_URL }}css/fullpage.css" rel="stylesheet" type="text/css" />
 		-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -69,6 +65,7 @@
 
 
     <!-- CORE JS FRAMEWORK-->
+    <!--
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/pace/pace.min.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
@@ -78,9 +75,11 @@
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/masonry.min.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/smoothscroll.js"></script>
 		<script async type="text/javascript" src="{{ STATIC_URL }}assets/plugins/modernizr.min.js"></script>
+    -->
 		<!-- /CORE JS FRAMEWORK-->
 
 		<!-- PLUGINS -->
+        <!-- Not needed
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery-fitvids/jquery.fitvids.min.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery-appear/jquery.appear.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery-countTo/jquery.countTo.js"></script>
@@ -94,19 +93,22 @@
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery-bxslider/jquery.bxslider.pack.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/iscroll/iscroll.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery-zoom/jquery.zoom.min.js"></script>
-		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery-videoBG/jquery.videoBG.js"></script> <!-- video background -->
+		<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery-videoBG/jquery.videoBG.js"></script>
+		-->
+		<!-- video background -->
+        <script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/jquery/jquery-1.10.2.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<!-- video background -->
 
-		<script type="text/javascript" src="{{ STATIC_URL }}assets/js/scripts.js"></script>
+
     <!-- fullscreen
+    <script type="text/javascript" src="{{ STATIC_URL }}assets/js/scripts.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.fullPage.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.slimscroll.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.easings.min.js"></script>
  -->
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+
 
 
 {% block extra_js %}
@@ -115,14 +117,15 @@
 
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    /*
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-3524333-36', 'auto');
   ga('send', 'pageview');
-
+    */
 </script>
 
 <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
