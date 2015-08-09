@@ -6,6 +6,10 @@
 
 {% block extra_css %}
     <style>
+
+        #sitewrapper{
+            background-color:{{ fp.bgcolor }};
+        }
         .bodyimg{
             width:100%;
             height:auto;
@@ -29,10 +33,22 @@
         .container {
             position: absolute;
             top: 50%;
-            left: 50%;
             -moz-transform: translateX(-50%) translateY(-50%);
             -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
+            width:100%;
+            text-align: center;
+        }
+
+        @media only screen
+        and (min-device-width : 768px)
+        and (max-device-width : 1024px)
+        and (orientation : portrait)
+        and (-webkit-min-device-pixel-ratio: 1)  {
+            .bodyimg{
+                width:auto;
+                height:100%;
+            }
         }
 
 
@@ -49,8 +65,12 @@
                 });
             {% endif %}
             {% if fp.email_link %}
-                $('#sitewrapper').on('click', function(){
-                    $('.fullpageitem').fadeToggle();
+                $(function(){
+                    $( "#sitewrapper" ).bind( "tap", tapHandler );
+
+                    function tapHandler( event ){
+                        $('.fullpageitem').fadeToggle();
+                    }
                 });
             {% endif %}
         });
