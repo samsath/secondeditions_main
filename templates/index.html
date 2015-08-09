@@ -66,11 +66,9 @@
             {% endif %}
             {% if fp.email_link %}
                 $(function(){
-                    $( "#sitewrapper" ).bind( "tap", tapHandler );
-
-                    function tapHandler( event ){
+                    $( "#sitewrapper" ).click(function(){
                         $('.fullpageitem').fadeToggle();
-                    }
+                    });
                 });
             {% endif %}
         });
