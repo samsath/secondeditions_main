@@ -11,27 +11,29 @@
             height:auto;
         }
 
-        .section{
-            height:100% !important;
+        .carousel .item {-webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;}
+        .carousel .active.left {left:0;opacity:0;z-index:2;}
+        .carousel .next {left:0;opacity:1;z-index:1;}
+
+        .fullpageitem{
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:100;
+            background-color:white;
+            display: none;
         }
 
-        {% if fp.slide_delay %}
-            .fp-prev{
-                border-color: transparent transparent transparent transparent !important;
-            }
-            .fp-next{
-                border-color: transparent transparent transparent transparent !important;
-            }
-
-            {% else %}
-            .fp-prev{
-                border-color: transparent lightslategrey transparent transparent !important;
-            }
-            .fp-next{
-                border-color: transparent transparent transparent lightslategrey !important;
-            }
-
-        {% endif %}
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
 
 
     </style>
@@ -40,22 +42,44 @@
 {% block extra_js %}
     <script type="text/javascript">
         $(document).ready(function() {
-            console.log('woop');
-            $('#fullpage').fullpage({
-                verticalCentered: true,
-                sectionsColor: ['{{ fp.bgcolor }}'],
-                scrollOverflow: true,
-                paddingTop: '0pc',
-                paddingBottom: '0px'
-            });
+
             {% if fp.slide_delay %}
-                setTimeout($.fn.fullpage.moveSlideRight(), {{ fp.slide_delay }});
+                $('.carousel').carousel({
+                    interval: {{ fp.slide_delay }}
+                });
+            {% endif %}
+            {% if fp.email_link %}
+                $('#sitewrapper').on('click', function(){
+                    $('.fullpageitem').fadeToggle();
+                });
             {% endif %}
         });
     </script>
 {% endblock %}
 
 {% block content %}
+    <div id="carousel-iamges" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+                {% for item in obj %}
+                        <div class="item {% if forloop.first %}active{% endif %}">
+                            <img class="bodyimg" src="{{ MEDIA_URL }}{{ item.cover_image.object.file }}" alt="{{ item.cover_image.title }}">
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                {% endfor %}
+        </div>
+    </div>
+    {% if fp.email_link %}
+    <div class="fullpageitem">
+        <div class="container">
+            {% if fp.email_description %}
+                <p class="emailtext">{{ fp.email_description }}</p>
+            {% endif %}
+            <a href="mailto:{{ fp.email_link }}" style="text-align: center;width: 100%;position: absolute;font-size: 14px;color: black;">{% if fp.email_title %}{{ fp.email_title }}{% else %}{{ fp.email_link }}{% endif %}</a>
+        </div>
+    </div>
+    {% endif %}
+    {% comment %}
     <div id="fullpage">
         {% if fp.is_image %}
             <div class="section" id="section1">
@@ -84,4 +108,5 @@
         {% endif %}
 
     </div>
+    {% endcomment %}
 {% endblock %}
