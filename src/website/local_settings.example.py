@@ -16,9 +16,9 @@ TEMPLATE_DEBUG = DEBUG
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '%(DBNAME)s',
-        'USER': '%(DBUSER)s',
-        'PASSWORD': '%(DBPASSWORD)s',
+        'NAME': 'secondeditions',
+        'USER': 'secondeditionsdb',
+        'PASSWORD': 'Tiesenlap13',
     }
 }
 
@@ -65,4 +65,4 @@ COMPRESS_URL = STATIC_URL
 ###########################################################################
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '%(SECRET_KEY)s'
+SECRET_KEY = '93g)$@ia@r6t27yw70-^*-42jih=u#1r1ox72^#d5)st=b)m!t'

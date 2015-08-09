@@ -68,14 +68,14 @@
                         </div>
                     </div>
                 {% endfor %}
-                {% if fp.showlast %}
+                {% if fp.email_link %}
                     <div class="slide">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 {% if fp.email_description %}
                                     <p class="emailtext">{{ fp.email_description }}</p>
                                 {% endif %}
-                                <a href="mailto:{{ fp.email_link }}">{% if fp.email_title %}{{ fp.email_title }}{% else %}{{ fp.email_link }}{% endif %}</a>
+                                <a href="mailto:{{ fp.email_link }}" style="text-align: center;width: 100%;position: absolute;font-size: 24px;color: black;">{% if fp.email_title %}{{ fp.email_title }}{% else %}{{ fp.email_link }}{% endif %}</a>
                             </div>
                         </div>
                     </div>
