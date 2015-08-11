@@ -30,5 +30,4 @@ http://pypi-81b384.ma-work.co.uk/media/dists/BeautifulSoup-3.2.0.tar.gz
 http://pypi-81b384.ma-work.co.uk/media/dists/sorl-thumbnail-3.2.5-ma1.tar.gz
 dependencies/django-contact-form-0.3.tar.gz
 Image == 1.4.0
-Pillow == 1.7.8
-Pillow-PIL 
+Pillow == 2.9.0

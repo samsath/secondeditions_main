@@ -65,12 +65,12 @@ SITE_ID = 1
 # Media/Static file handling
 # --------------------------
 
-MEDIA_ROOT = '/home/secondeditions/public_html/media'
-#MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+#MEDIA_ROOT = '/home/secondeditions/public_html/media'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = '/home/secondeditions/public_html/static'
-#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'media', 'static')
+#STATIC_ROOT = '/home/secondeditions/public_html/static'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'media', 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (

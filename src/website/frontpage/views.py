@@ -21,3 +21,14 @@ def index(request):
         return render_to_response('index.html', context, context_instance=RequestContext(request))
     else:
         raise Http404
+
+
+def contact(request):
+    if FrontPage.objects.count() > 0:
+        fp = FrontPage.objects.all()[0]
+        context = {
+            'fp':fp
+        }
+        return render_to_response('contact.html', context, context_instance=RequestContext(request))
+    else:
+        raise Http404

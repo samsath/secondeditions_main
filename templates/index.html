@@ -39,6 +39,9 @@
             width:100%;
             text-align: center;
         }
+        .loadsection{
+            display:none;
+        }
 
         @media only screen
         and (min-device-width : 768px)
@@ -58,7 +61,7 @@
 {% block extra_js %}
     <script type="text/javascript">
         $(document).ready(function() {
-
+            $('.loadsection').fadeIn("slow");
             {% if fp.slide_delay %}
                 $('.carousel').carousel({
                     interval: {{ fp.slide_delay }}
@@ -67,7 +70,9 @@
             {% if fp.email_link %}
                 $(function(){
                     $( "#sitewrapper" ).click(function(){
-                        $('.fullpageitem').fadeToggle();
+                        $('.loadsection').fadeOut("slow",function(){
+                            window.location.replace("{% url 'contact' %}");
+                        });
                     });
                 });
             {% endif %}
@@ -76,27 +81,23 @@
 {% endblock %}
 
 {% block content %}
+<div class="loadsection">
     <div id="carousel-iamges" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
                 {% for item in obj %}
                         <div class="item {% if forloop.first %}active{% endif %}">
-                            <img class="bodyimg" src="{{ MEDIA_URL }}{{ item.cover_image.object.file }}" alt="{{ item.cover_image.title }}">
+                            {% if item.svg %}
+                                <img class="bodyimg" src="{{ MEDIA_URL }}{{ item.svg }}" alt="{{ item.title }}">
+                            {% else %}
+                                <img class="bodyimg" src="{{ MEDIA_URL }}{{ item.cover_image.object.file }}" alt="{{ item.cover_image.title }}">
+                            {% endif %}
                             <div class="carousel-caption">
                             </div>
                         </div>
                 {% endfor %}
         </div>
     </div>
-    {% if fp.email_link %}
-    <div class="fullpageitem">
-        <div class="container">
-            {% if fp.email_description %}
-                <p class="emailtext">{{ fp.email_description }}</p>
-            {% endif %}
-            <a href="mailto:{{ fp.email_link }}" style="text-align: center;width: 100%;position: absolute;font-size: 14px;color: black;">{% if fp.email_title %}{{ fp.email_title }}{% else %}{{ fp.email_link }}{% endif %}</a>
-        </div>
-    </div>
-    {% endif %}
+</div>
     {% comment %}
     <div id="fullpage">
         {% if fp.is_image %}

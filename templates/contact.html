@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load webdesign %}
+{% load url from future %}
+
+{% block title %}{{ fp.title }}{% endblock %}
+{% block bodyclass %}index{% endblock %}
+
+{% block extra_css %}
+    <style>
+
+        #sitewrapper{
+            background-color:{{ fp.bgcolor }};
+        }
+        .bodyimg{
+            width:100%;
+            height:auto;
+        }
+
+        .carousel .item {-webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;}
+        .carousel .active.left {left:0;opacity:0;z-index:2;}
+        .carousel .next {left:0;opacity:1;z-index:1;}
+
+        .fullpageitem{
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:100;
+            background-color:white;
+            display: none;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            width:100%;
+            text-align: center;
+        }
+
+        @media only screen
+        and (min-device-width : 768px)
+        and (max-device-width : 1024px)
+        and (orientation : portrait)
+        and (-webkit-min-device-pixel-ratio: 1)  {
+            .bodyimg{
+                width:auto;
+                height:100%;
+            }
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+           $('.fullpageitem').fadeToggle();
+
+            if (window.history && window.history.pushState) {
+
+                $(window).on('popstate', function() {
+                    var hashLocation = location.hash;
+                    var hashSplit = hashLocation.split("#!/");
+                    var hashName = hashSplit[1];
+
+                    if (hashName !== '') {
+                        var hash = window.location.hash;
+                        if (hash === '') {
+                            $('.fullpageitem').fadeOut("slow", function(){
+                                window.location.replace("{% url 'index' %}");
+                            });
+                        }
+                    }
+                });
+
+                window.history.pushState('forward', null, './');
+            }
+
+        });
+    </script>
+{% endblock %}
+{% block content %}
+{% if fp.email_link %}
+    <div class="fullpageitem">
+        <div class="container">
+            {% if fp.email_description %}
+                <p class="emailtext">{{ fp.email_description }}</p>
+            {% endif %}
+            <a href="mailto:{{ fp.email_link }}" style="text-align: center;width: 100%;position: absolute;font-size: 14px;color: black;">{% if fp.email_title %}{{ fp.email_title }}{% else %}{{ fp.email_link }}{% endif %}</a>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

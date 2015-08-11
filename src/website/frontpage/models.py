@@ -47,6 +47,7 @@ class ImageType(models.Model):
                                       limit_choices_to={'content_type__model':'image'},
                                       related_name='mediapage_image_detail_media',
                                       help_text="If you have a production select it bellow if you want to create a new gallery use this methord. Image that appears in the gallery. Images will show at a height of 230px the gallery overlay images should be 900x575px")
+    svg = models.FileField(upload_to='svg/', blank=True, null=True)
 
     def __unicode__(self):
         if self.title is not '&nbsp':

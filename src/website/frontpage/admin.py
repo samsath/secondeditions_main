@@ -30,6 +30,7 @@ class ImageAdmin(ModelAdmin):
                 'date',
                 'cover_image',
                 'detail_media',
+                'svg',
             ),
         }),
     )
