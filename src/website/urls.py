@@ -16,7 +16,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'website.frontpage.views.index', name='index'),
-    url(r'c/$', 'website.frontpage.views.contact', name='contact'),
+    url(r'/$', 'website.frontpage.views.contact', name='contact'),
 
 
     #DEVELOPMENT
