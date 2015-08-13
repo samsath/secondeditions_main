@@ -23,7 +23,7 @@ urlpatterns = patterns('',
    url(r'^downloads/(?P<slug>[^/]+)/download/(?P<filename>.+)$', 'mediastore.mediatypes.download.views.download_counter', name='mediastore-download-link'),
 
    url(r'^admin/', include(admin.site.urls)),
-    url(r'/c$', 'website.frontpage.views.contact', name='contact'),
+    url(r'c$', 'website.frontpage.views.contact', name='contact'),
 
 
     #DEVELOPMENT
