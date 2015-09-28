@@ -64,7 +64,8 @@
             $('.loadsection').fadeIn("slow");
             {% if fp.slide_delay %}
                 $('.carousel').carousel({
-                    interval: {{ fp.slide_delay }}
+                    interval: {{ fp.slide_delay }},
+                    pause: "false"
                 });
             {% endif %}
             {% if fp.email_link %}
